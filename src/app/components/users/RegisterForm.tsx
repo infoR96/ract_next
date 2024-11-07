@@ -29,7 +29,7 @@ const RegisterForm: React.FC = () => {
     const user = { name, email, password };
 
     try {
-      const response = await fetch("/api/users", {
+      const response = await fetch("https://ract-next.vercel.app/api/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

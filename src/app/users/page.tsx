@@ -12,8 +12,7 @@ const CsvUploader: React.FC = () => {
   return (
     <div>
       <UserList />
-      <LoginForm/>
-      <RegisterForm />
+
     </div>
   );
 };

@@ -1,5 +1,7 @@
 import React from 'react';
 import './Inicio.css';
+import LoginForm from '../users/LoginForm';
+import RegisterForm from '../users/RegisterForm';
 
 export const Inicio: React.FC = () => {
   return (
@@ -20,7 +22,10 @@ export const Inicio: React.FC = () => {
        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>
          
         </div>
-        <div className="cards">
+        <LoginForm/>
+        <RegisterForm />
+        
+        {/* <div className="cards">
           <a href="/simulation" className="card">
             <img src="/imagenes/1.1_Simulation.png" alt="Simulation" />
             <h2>CALCULOS</h2>
@@ -30,7 +35,7 @@ export const Inicio: React.FC = () => {
             <img src="/imagenes/1.3_data_recollection.png" alt="Data Recollection" />
             <h2>DATA RECOLLECTION</h2>
           </a>
-        </div>
+        </div> */}
       </div>
     </>
   );

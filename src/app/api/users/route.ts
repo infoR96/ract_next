@@ -4,7 +4,8 @@
 import { NextResponse } from 'next/server';
 import sql from '@/lib/db'; // Asegúrate de que esta ruta sea correcta
 import bcrypt from 'bcryptjs';
-
+import jwt from "jsonwebtoken";
+const secretKey = process.env.SECRET_KEY ;
 // Ruta GET para obtener los usuarios
 export async function GET() {
   try {
@@ -40,11 +41,25 @@ export async function POST(request: Request) {
       INSERT INTO users (id, name, email, password)
       VALUES (gen_random_uuid(), ${name}, ${email}, ${hashedPassword});
     `;
+    const result = await sql`SELECT * FROM users WHERE email = ${email};`;
+    const user = result.rows[0];
+    if (!secretKey) {
+      throw new Error("La clave secreta (SECRET_KEY) no está definida en el entorno.");
+    }
 
+  const token = jwt.sign({ userId: user.id, email: user.email }, secretKey, {
+    expiresIn: "10h",
+  });
     // Respuesta exitosa
-    return NextResponse.json({ message: 'User created successfully' });
+    return NextResponse.json({ message: 'Usuario creado satisfactoriamente',
+                              name: user.name,
+                              token:token,
+                              email:user.email
+
+     });
   } catch (error) {
     console.error('Error creating user:', error);
     return NextResponse.json({ error: 'Failed to create user' }, { status: 500 });
   }
 }
+

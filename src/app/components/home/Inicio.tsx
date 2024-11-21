@@ -2,11 +2,12 @@ import React from 'react';
 import './Inicio.css';
 import LoginForm from '../users/LoginForm';
 import RegisterForm from '../users/RegisterForm';
+import CameraCapture from '../Video/CameraCapture';
 
-export const Inicio: React.FC = () => {
+export const  Inicio: React.FC = () => {
   return (
     <>
-      <div className="solar-storm-container">
+      {/* <div className="solar-storm-container">
         <div className="solar-storm-header">
           <h1>CODEA FACIL
           </h1>
@@ -21,9 +22,10 @@ export const Inicio: React.FC = () => {
         <iframe width="560" height="315" src="https://www.youtube.com/embed/XrOVx7wOLSM?si=aLA0D9J35f8Tuc5x" title="YouTube video player" 
        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>
          
-        </div>
-        <LoginForm/>
-        <RegisterForm />
+        </div> */}
+        {/* <CameraCapture/> */}
+        {/* <LoginForm/>
+        <RegisterForm /> */}
         
         {/* <div className="cards">
           <a href="/simulation" className="card">
@@ -36,7 +38,9 @@ export const Inicio: React.FC = () => {
             <h2>DATA RECOLLECTION</h2>
           </a>
         </div> */}
-      </div>
+      {/* </div>*/}
+          <CameraCapture/>
+
     </>
   );
 };
